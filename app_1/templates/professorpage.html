@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block professorpage %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="toolbar">
+        <a class="navbar-brand" href="#">Profesor</a>
+        <a class="toolbar-item" href="{% url 'logout' %}">Odjava</a>
+        <a class="nav-link" href="{% url 'courses_professor' %}">Kolegiji</a>
+    
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

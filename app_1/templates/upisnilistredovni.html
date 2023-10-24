@@ -1,0 +1,52 @@
+{% extends page %}
+{% block upisni_list %}
+<div class="flexcont">
+  <div>
+  <form method="post">
+    <table class="table table-hover table-success predmeti">
+      {% csrf_token %}
+        <th class="table-light">Predmeti:</th>
+        {% for predmet in predmeti %}
+        <tr>
+          <td> {{predmet.name}} &nbsp; <input type="submit" name="{{predmet.name}}" value="Dodaj" class="btn-light col-1"></td>
+        </tr>
+        {% endfor %}
+    </table>
+  </form>
+  </div>
+  <div>
+    <h1>Upisi {{upisni.0.korisnik.username}}:</h1>
+    {% for key, value in semestar.items %}
+      <form method="post">
+        <table class="table table-hover table-success predmeti">
+          {% csrf_token %}
+            <th class="table-light">{{ value }} semestar:</th>
+            {% for upis in upisni %}
+              {% if upis.predmet.sem_red == key %}
+                <tr>
+                  {% if upis.status == 'upisan' %}
+                  <td>
+                    {{upis.predmet.name}}
+                    &nbsp;
+                    <input type="submit" name="{{upis.predmet.name}}" value="Potvrdi" class="btn-light col-1">
+                    
+                    <input type="submit" name="{{upis.predmet.name}}" value="Izbriši" class="btn-light col-1">
+                    
+                  </td>
+                  {% else %}
+                  <td>
+                    {{upis.predmet.name}}
+                    &nbsp;
+                    <input type="submit" name="{{predmet.name}}" value="✓" class="btn-light col-1">
+                    
+                  </td>
+                  {% endif %}
+                </tr>
+              {% endif %}
+            {% endfor %}
+        </table>
+      </form>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

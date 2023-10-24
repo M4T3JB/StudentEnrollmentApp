@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predmeti po semestru</title>
+</head>
+<body>
+    
+    <form method="GET" action="{% url 'filtriraj_po_semestru' %}">
+        <input type="text" name="semestar" value="{{ semestar }}">
+        <button type="submit">Filtriraj</button>
+    </form>
+    
+    <ul>
+    {% for predmet in predmeti %}
+        <li>{{ predmet.name }}</li>
+    {% empty %}
+        <li>Nema takvih predmeta.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

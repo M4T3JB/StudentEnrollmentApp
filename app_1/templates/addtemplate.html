@@ -1,0 +1,19 @@
+{% extends 'adminpage.html' %}
+{% block addsubject %}
+<div class="d-flex justify-content-center">
+<form method="post">
+    <table class="table table-hover table-success predmeti center">
+    {% csrf_token %}
+    {{form.as_table}}
+
+    </table>
+        <input type="submit" value="Uredi" name="update" class="button-green"> 
+</form>
+{% if message %}
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    {{ message }}
+</div>
+{% endif %}
+</div>
+{% endblock addsubject %}

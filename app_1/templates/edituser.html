@@ -1,0 +1,12 @@
+{% extends 'adminpage.html' %}
+{% block editsubject %}
+<div class="d-flex justify-content-center">
+<form method="post">
+    <table class="table table-hover table-success predmeti center">
+    {{form.as_table}}   
+    {% csrf_token %}
+    </table>
+        <input type="submit" value="Uredi" name="update" class="button-green">
+</form>
+</div>
+{% endblock editsubject %}

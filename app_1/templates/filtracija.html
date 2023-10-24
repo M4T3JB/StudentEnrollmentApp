@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtracija</title>
+</head>
+<body>
+    
+    <form method="GET" action="{% url 'filtracija' %}">
+        <label for="ects">ECTS:</label>
+        <input type="text" name="ects" value="{{ ects_input }}">
+        
+        <label for="semestar">Semestar:</label>
+        <input type="text" name="semestar" value="{{ semestar_input }}">
+        
+        <button type="submit">Filtriraj</button>
+    </form>
+    
+    {% if predmeti %}
+        <ul>
+        {% for predmet in predmeti %}
+            <li>{{ predmet.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nema takvih predmeta.</p>
+    {% endif %}
+</body>
+</html>

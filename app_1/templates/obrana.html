@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Obrana</title>
+</head>
+<body>
+    
+    <form method="GET" action="{% url 'obrana' %}">
+        <input type="text" name="input" value="{{ input }}">
+        <button type="submit">Filter</button>
+    </form>
+    
+    <ul>
+    {% for subject in subjects %}
+        <li>{{ subject.name }}</li>
+    {% empty %}
+        <li>Nema takvih predmeta</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'professorpage.html' %}
+{% block students_on_subject %}
+<h3 class="p-1">Studenti na predmetu {{polozeni.0.predmet.name}}</h3>
+<div class="d-flex justify-content-center p-3">
+  <table class="table table-hover table-success d-flex justify-content-end p-5">
+      {% csrf_token %}
+        <th class="table-light">Status polozen:</th>
+        {% for polozen in polozeni %}
+            <tr>
+              <td>
+                {{polozen.korisnik.username}}
+                &nbsp;
+                <input type="submit" name="{{polozen.korisnik.username}}" value="✓" class="btn-light col-3">
+              </td>
+              {% if polozen.korisnik.status == 'izv' %}
+              <td>
+                Izvanredni
+              </td>
+              {% else %}
+              <td>
+                Redovni
+              </td>
+              {% endif %}
+            </tr>
+        {% endfor %}
+  </table>
+   
+  <table class="table table-hover table-light d-flex justify-content-start p-5">
+    <form method="post" >
+    {% csrf_token %}
+      <th class="table-light">Status upisan:</th>
+      {% for upisan in upisani %}
+          <tr>
+            <td> 
+               {{upisan.korisnik.username}}
+                &nbsp;
+                <input type="submit" name="{{upisan.korisnik.username}}" value="Potvrdi" class="btn-light col-3">
+                
+            </td>
+            {% if polozen.korisnik.status == 'izv' %}
+            <td>
+              Izvanredni
+            </td>
+            {% else %}
+            <td>
+              Redovni
+            </td>
+            {% endif %}
+          </tr>
+      {% endfor %}
+    </form>
+  </table>
+</div>
+
+{% endblock %}

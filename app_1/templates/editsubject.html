@@ -1,0 +1,28 @@
+{% extends 'adminpage.html' %}
+{% block editsubject %}
+<form method="post">
+    <table class="table table-hover table-success predmeti center">
+    {{form.as_table}}
+        <th>Izborni</th>
+        <td>
+            <select id="izb" name="izborni">
+            {% for key, val in values.items %}
+            {% if val == selvalue %}
+                <option value="{{ value }}" selected="selected">
+                    {{val}}
+                </option>
+            {% else %}
+                <option value="{{ value }}"> {{val}} </option>
+            {% endif %}>
+            {% endfor %}
+            </select>
+        </td>
+    </tr>   
+    {% csrf_token %}
+    
+    </table>
+        <input type="submit" value="update" name="update" class="button-green"> 
+        <input type="submit" value="delete" name="delete" class="button-red">
+</form>
+
+{% endblock %}

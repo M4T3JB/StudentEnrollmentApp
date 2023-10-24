@@ -1,0 +1,16 @@
+{% extends page %}
+{% block students_on_subject %}
+<div class="d-flex justify-content-center">
+  <table class="table table-hover table-success predmeti">
+      {% csrf_token %}
+        <th class="table-light">Studenti na predmetu {{upisi.0.predmet.name}} :</th>
+        {% for upis in upisi %}
+            <tr>
+              <td>
+                {{upis.korisnik.username}}
+              </td>
+            </tr>
+        {% endfor %}
+  </table>
+</div>
+{% endblock %}

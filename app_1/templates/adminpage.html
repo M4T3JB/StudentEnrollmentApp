@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block adminpage %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="toolbar">
+        <a class="navbar-brand" href="#">Administrator</a>
+        <a class="toolbar-item" href="{% url 'logout' %}">Odjava</a>
+        <a class="toolbar-item" href="{% url 'courses' %}">Kolegiji</a>
+        <a class="toolbar-item" href="{% url 'students' %}">Studenti</a>
+        <a class="toolbar-item" href="{% url 'professors' %}">Profesori</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

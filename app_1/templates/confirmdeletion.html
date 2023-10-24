@@ -1,0 +1,15 @@
+{% extends 'adminpage.html' %}
+{% block confirmdeletion %}
+
+<div class="parent">
+    <div class="child">
+        <form action="{% url 'delete_confirmed' data name_obj %}" method="POST">
+            <p>Are you sure?</p>
+            {% csrf_token %}
+                <input type="submit" name="yes" value="yes" class="button-green">
+                <input type="submit" name="no" value="no" class="button-red">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

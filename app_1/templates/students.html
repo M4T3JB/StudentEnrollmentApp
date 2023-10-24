@@ -1,0 +1,13 @@
+{% extends 'adminpage.html' %}
+{% block students %}
+<table class="table table-hover table-success d-flex justify-content-center align-items-center p-3">
+    <tr>
+      <th>Redovni studenti:</th>
+      <td><a href="{% url 'redovni' %}">redovni@oss.hr</a></td>
+    </tr>
+    <tr>
+      <th>Izvanredni studenti:</th>
+      <td><a href="{% url 'izvanredni' %}">izvanredni@oss.hr</a></td>
+    </tr>
+</table>
+{% endblock %}

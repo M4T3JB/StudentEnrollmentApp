@@ -1,0 +1,44 @@
+{% extends 'adminpage.html' %}
+{% block detailsubject %}
+<div class="cont">
+    <h1>Podatci o odabranom predmetu:</h1>
+    <table class="table table-hover table-success predmeti center">
+        <tr>
+        <th>Ime predmeta:</th>
+        <td> {{predmet.name}}</td>
+        </tr>
+        <tr>
+            <th>Kod:</th>
+            <td>{{predmet.kod}}</td>
+        </tr>
+        <tr>
+            <th>Program</th>
+            <td>{{predmet.program}}</td>
+        </tr>
+        <tr>
+            <th>Ects:</th>
+            <td>{{predmet.ects}}</td>
+        </tr>
+        <tr>
+            <th>Kod predmeta:</th>
+            <td>{{predmet.kod}}</td>
+        </tr>
+        <tr>
+            <th>Semestar redovni:</th>
+            <td>{{predmet.sem_red}}</td>
+        </tr>
+        <tr>
+            <th>Semestar izvanredni:</th>
+            <td>{{predmet.sem_izv}}</td>
+        </tr>
+        <tr>
+            <th>Izborni:</th>
+            <td>{{predmet.izborni}}</td>
+        </tr>
+        <tr>
+            <th>Nositelj:</th>
+            <td>{{predmet.nositelj}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock detailsubject %}
